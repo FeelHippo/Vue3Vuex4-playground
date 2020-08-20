@@ -1,24 +1,24 @@
 # discos
 
-## Project setup
-```
-yarn install
-```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run  serve
 ```
+if "serve" is terminated without logs: 
+``` 
+npm config set ignore-scripts false
+```
+### add TypeScript
+from the prompt: 
+$ vue add typescript
 
-### Compiles and minifies for production
-```
-yarn build
-```
+and then modify shims-vue.d.ts:
 
-### Lints and fixes files
+```javascript
+declare module '*.vue' {
+  import { ComponentOptions } from 'vue';
+  const component: ComponentOptions;
+  export default component;
+}
 ```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

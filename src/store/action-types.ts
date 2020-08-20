@@ -1,0 +1,6 @@
+export enum ActionTypes {
+    UPDATE_SEARCH = 'UPDATE_SEARCH',
+    UPDATE_GEO = 'UPDATE_GEO',
+    UPDATE_CATEGORY = 'UPDATE_CATEGORY',
+    GET_ARTICLE = 'GET_ARTICLE',
+}
