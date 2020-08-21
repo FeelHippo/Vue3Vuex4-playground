@@ -1,16 +1,14 @@
 <template>
-  <div id="app">
+  <div 
+    id="app"
+    class="flex-col"  
+  >
     <Navbar 
       :class="{ 'scrolled': !view.atTopOfPage }"
       class="child-nav fixed flex w-full bg-white border-b items-center justify-center flex-wrap p-5 m-auto top-0 duration-300"
       style="transition: all .15s ease"
     />
-    <h3>{{ search.user_input }}</h3>
-    <ul>
-      <li v-for="el in search.data" v-bind:key="el.source.id">
-        {{ el }}
-      </li>
-    </ul>
+    <Main />
   </div>
 </template>
 
@@ -19,16 +17,17 @@ import { defineComponent, computed } from 'vue'
 import { useStore } from './store/index';
 // import { ActionTypes } from './store/action-types';
 import Navbar from './components/navbar.vue';
+import Main from './components/main.vue';
 
 export default defineComponent ({
   name: 'App',
   components: {
     Navbar,
+    Main,
   },
   setup() {
     const store = useStore();
-    const search = computed(() => store.state)
-    // const update = computed(() => store.getters.search_field)
+    const search = computed(() => store.state);
     return { search }
   },
   data () {

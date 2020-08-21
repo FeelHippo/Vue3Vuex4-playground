@@ -4,7 +4,7 @@
             type="text" 
             name="user_input" 
             v-model="user_input" 
-            class="searchField text-pink-500 bg-transparent border border-solid border-pink-500 hover:bg-pink-500 hover:text-white active:bg-pink-600 font-bold uppercase px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1"
+            class="searchField text-pink-500 bg-transparent text-center border border-solid border-pink-500 hover:bg-pink-500 hover:text-white active:bg-pink-600 font-bold uppercase px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1"
             placeholder="Search Criteria"> 
     </div> 
 </template>
