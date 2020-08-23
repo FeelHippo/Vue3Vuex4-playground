@@ -18,6 +18,7 @@
     "vue-class-component": "^7.2.3",
     "vue-click-outside-element": "^1.0.11",
     "vue-property-decorator": "^8.4.2",
+    "vue-router": "^4.0.0-beta.4",
     "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {

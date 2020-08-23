@@ -1,6 +1,6 @@
 <template>
     <button 
-        class="resetSearch text-pink-500 bg-transparent border border-solid border-pink-500 hover:bg-pink-500 hover:text-white active:bg-pink-600 font-bold uppercase px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1" 
+        class="resetSearch text-pink-500 bg-transparent border border-solid border-pink-500 hover:bg-pink-500 hover:text-white active:bg-pink-600 font-bold uppercase rounded outline-none focus:outline-none mr-1 mb-1" 
         type="button" 
         style="transition: all .15s ease"
         @click="okSearch"
@@ -25,9 +25,3 @@ export default defineComponent ({
     }
 })
 </script>
-
-<style lang="scss">
-    .resetSearch {
-        padding: 0 !important;
-    }
-</style>

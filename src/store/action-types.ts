@@ -3,4 +3,5 @@ export enum ActionTypes {
     UPDATE_GEO = 'UPDATE_GEO',
     UPDATE_CATEGORY = 'UPDATE_CATEGORY',
     GET_ARTICLE = 'GET_ARTICLE',
+    GET_DETAIL = 'GET_DETAIL',
 }

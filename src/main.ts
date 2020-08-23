@@ -1,10 +1,21 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import './assets/css/style.css';
-//import router from './router';
+import { Router, createRouter } from 'vue-router'
+import { router } from './router/index';
 import { store } from './store/index';
 
-createApp(App)
-    // .use(router)
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties {
+      $router: Router
+    }
+}
+
+const app = createApp(App)
+    .use(router)
     .use(store)
-    .mount('#app')
+
+// adding a property $router to every component instance, not available in "vue-router": "^4.0.0-beta.4"
+app.config.globalProperties.$router = createRouter;
+    
+app.mount('#app')

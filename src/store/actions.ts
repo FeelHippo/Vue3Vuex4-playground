@@ -17,6 +17,10 @@ export interface Actions {
         { commit }: AugmentedActionContext,
         payload: Array<string>,
     ): Promise<Article[]>;
+    [ActionTypes.GET_DETAIL] (
+        { commit }: AugmentedActionContext,
+        payload: Array<string>,
+    ): Promise<Article[]>
     [ActionTypes.UPDATE_SEARCH] (
         { commit }: AugmentedActionContext,
         payload: string,
@@ -33,12 +37,20 @@ export interface Actions {
 
 export const actions: ActionTree<State, State> & Actions = {
     [ActionTypes.GET_ARTICLE]({ commit }, payload) {
-        
         return new Promise((resolve) => {            
             // API CALL
             DataService.getLatest(payload)
                 .then(data => {
                     commit(MutationTypes.FETCH_NEWS, data)
+                    resolve(data)
+                })
+        })
+    },
+    [ActionTypes.GET_DETAIL]({ commit }, payload) {
+        return new Promise((resolve) => {
+            DataService.search(payload)
+                .then(data => {
+                    commit(MutationTypes.FETCH_DETAIL, data)
                     resolve(data)
                 })
         })

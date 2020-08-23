@@ -11,8 +11,13 @@ class DataService {
         })
     }
 
-    search(params: string): Promise<Array<Article>> {
-        return http.get(`/search${params}`)
+    search(params: Array<string>): Promise<Array<Article>> {
+        let q = params[0],
+            from = params[1];
+            const URL_API = `/everything?q=+${q}&from=${from}`;
+        return http.get(URL_API).then(response => {
+            return response.data.articles[0];
+        })
     }
 }
 

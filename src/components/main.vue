@@ -1,8 +1,11 @@
 <template>
-    <section
-        class="flex-row mt-16"
-    >
-        <Cards />
+    <section>
+        <article class="w-2/3">
+            <Cards class="max-w-full flex-row mt-32"/>
+        </article>
+        <article class="absolute top-0 right-0 w-1/3 h-screen">
+            <router-view class="flex-col"></router-view>
+        </article>
     </section>
 </template>
 
@@ -17,7 +20,3 @@ export default defineComponent ({
     },
 });
 </script>
-
-<style lang="scss">
-    
-</style>
