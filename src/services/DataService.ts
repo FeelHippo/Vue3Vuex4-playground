@@ -11,11 +11,14 @@ class DataService {
         })
     }
 
-    search(params: Array<string>): Promise<Array<Article>> {
-        let q = params[0],
-            from = params[1];
-            const URL_API = `/everything?q=+${q}&from=${from}`;
+    search(params: string): Promise<Article> {
+        let parsed_params = (<string>params).split('-');
+        let from = parsed_params[0] + parsed_params[1] + parsed_params[2],
+            q = parsed_params[3]; // this is because the API does not provide a search by id option...
+        const URL_API = `/everything?q=+${q}&from=${from}`;
         return http.get(URL_API).then(response => {
+            console.log(response);
+            
             return response.data.articles[0];
         })
     }

@@ -1,11 +1,11 @@
 <template>
     <ul
-        v-if="searchResults.data.length"
+        v-if="searchResults.length"
         id="v-for-searchResults"
         class="max-w-full"
     >
         <li
-            v-for="result in searchResults.data"
+            v-for="result in searchResults"
             v-bind:key="result.source.id"
             class="max-w-full lg:flex rounded-lg mx-4 my-4"
         >
@@ -40,7 +40,7 @@ export default defineComponent ({
     name: 'Cards',
     setup () {
         const store = useStore();
-        const searchResults = computed(() => store.state);
+        const searchResults = computed(() => store.state.data);
         
         return { searchResults }
     }

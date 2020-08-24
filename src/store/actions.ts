@@ -19,8 +19,8 @@ export interface Actions {
     ): Promise<Article[]>;
     [ActionTypes.GET_DETAIL] (
         { commit }: AugmentedActionContext,
-        payload: Array<string>,
-    ): Promise<Article[]>
+        payload: string,
+    ): Promise<Article>
     [ActionTypes.UPDATE_SEARCH] (
         { commit }: AugmentedActionContext,
         payload: string,

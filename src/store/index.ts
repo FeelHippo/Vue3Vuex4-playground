@@ -31,10 +31,16 @@ export type State = {
     user_input: string,
     country: string,
     category: string,
-    data: Array<Article>, 
+    data: Array<Article>,
+    detail: Article, 
     locales: Array<string>,
     categories: Array<string>
 };
+
+const source: Source = {
+    id: '',
+    name: '',
+}
 
 const state: State = {
     loading: false,
@@ -42,6 +48,18 @@ const state: State = {
     country: 'us',
     category: 'category',
     data: [],
+    detail: {
+        source: {
+            source 
+        },
+        title: '',
+        description: '',
+        url: '',
+        author: '',
+        urlToImage: '',
+        content: '',
+        publishedAt: '',
+    },
     locales: [
         'us',
         'gb',

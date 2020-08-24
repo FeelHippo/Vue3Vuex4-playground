@@ -1,9 +1,14 @@
 <template>
-    <p class="w-auto ">Hello!</p>
+    <section class="fixed px-4 py-48 mx-4">
+        <h1 class="w-auto font-semibold">{{ searchResult.title }}</h1>
+        <h3 class="w-auto italic">{{ searchResult.author }}</h3>
+        <h4>{{ searchResult.description }}</h4>
+        <h6>{{ searchResult.content }}</h6>
+    </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ActionTypes } from '../store/action-types';
@@ -14,11 +19,13 @@ export default defineComponent ({
         const store = useStore();
         const router = useRouter();
         const { params: { id } } = router.currentRoute.value;
-        
+        const searchResult = computed(() => store.state.detail)
+
         onMounted(() => {
-            let parsed_params = (<string>id).split("-");
-            store.dispatch(ActionTypes.GET_DETAIL, parsed_params);
+            store.dispatch(ActionTypes.GET_DETAIL, id);
         })
+        
+        return { searchResult }
     },
 })
 </script>

@@ -8,7 +8,7 @@ export type Mutations<S = State> = {
     [MutationTypes.UPDATE_COUNTRY](state: S, payload: string): string,
     [MutationTypes.UPDATE_TOPIC](state: S, payload: string): string,
     [MutationTypes.FETCH_NEWS](state: S, payload: Array<Article>): Array<Article>,
-    [MutationTypes.FETCH_DETAIL](state: S, payload: Array<Article>): Array<Article>,
+    [MutationTypes.FETCH_DETAIL](state: S, payload: Article): Article,
     [MutationTypes.REMOVE_FAV](state: S, payload: Article): Array<Article>,
     [MutationTypes.ADD_FAV](state: S, payload: Article): Array<Article>,
 }
@@ -34,9 +34,9 @@ export const mutations: MutationTree<State> & Mutations = {
         state.data = payload
         return state.data
     },
-    [MutationTypes.FETCH_DETAIL](state, payload: Array<Article>) {
-        state.data = payload
-        return state.data
+    [MutationTypes.FETCH_DETAIL](state, payload: Article) {
+        state.detail = payload 
+        return state.detail
     },
     [MutationTypes.REMOVE_FAV](state, payload: Article) {
         state.data = [payload]
