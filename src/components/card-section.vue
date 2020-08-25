@@ -26,7 +26,7 @@
                         <p class="text-gray-600">{{ result.publishedAt }}</p>
                     </div>
                 </div>
-                <router-link :to="{ path: `detail/${ result.publishedAt }-${ result.title }` }">Read More</router-link>
+                <router-link :to="{ path: `${ result.publishedAt }-${ result.title }` }">Read More</router-link>
             </div>
         </li>
     </ul>

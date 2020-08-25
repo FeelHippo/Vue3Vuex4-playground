@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, computed } from 'vue';
+import { defineComponent, onMounted, computed, watch, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ActionTypes } from '../store/action-types';
@@ -22,6 +22,10 @@ export default defineComponent ({
         const searchResult = computed(() => store.state.detail)
 
         onMounted(() => {
+            store.dispatch(ActionTypes.GET_DETAIL, id);
+        })
+
+        watch(ref(id), () => {
             store.dispatch(ActionTypes.GET_DETAIL, id);
         })
         

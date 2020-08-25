@@ -4,7 +4,7 @@
             <Cards class="max-w-full flex-row mt-32"/>
         </article>
         <article class="absolute top-0 right-0 w-1/3 h-screen flex">
-            <router-view class="flex-col"></router-view>
+            <router-view class="flex-col" :key="$route.fullPath"></router-view>
         </article>
     </section>
 </template>

@@ -3,7 +3,7 @@ import Detail from '../components/detail-section.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/detail/:id',
+        path: '/:id',
         name: 'Detail',
         component: Detail
     }
